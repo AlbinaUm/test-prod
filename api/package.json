@@ -2,6 +2,7 @@
   "name": "shop-api",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "build": "tsc writeFile.ts",
     "start": "node index.ts",
