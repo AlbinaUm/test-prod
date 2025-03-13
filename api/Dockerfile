@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8000
 
 # Запускаем приложение
-CMD ["node", "dist/index.js"]
+CMD ["node", "index.js"]
