@@ -1,5 +1,5 @@
 # Используем официальный образ Node.js для сборки
-FROM node:16 as build
+FROM node:18 as build
 
 WORKDIR /app
 
