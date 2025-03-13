@@ -16,8 +16,6 @@ services:
       - "8000:8000"
     volumes:
       - ./api:/app
-    environment:
-      - NODE_ENV=production
     depends_on:
       - mongo
 
@@ -29,8 +27,6 @@ services:
       - "80:80"
     volumes:
       - ./frontend:/app
-    environment:
-      - NODE_ENV=production
     depends_on:
           - api
 
