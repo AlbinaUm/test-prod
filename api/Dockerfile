@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8000
 
 # Запускаем приложение
-CMD ["node", "index.js"]
+CMD ["tsc", "start"]
