@@ -19,7 +19,7 @@ RUN npm run build
 
 # Используем nginx для сервировки статики
 FROM nginx:alpine
-COPY --from=0 /app/build /usr/share/nginx/html
+COPY --from=0 /app/dist /usr/share/nginx/html
 
 # Открываем порт 80 для фронтенда
 EXPOSE 80
