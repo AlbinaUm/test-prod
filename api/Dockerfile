@@ -19,4 +19,4 @@ RUN npm run build  # Make sure `tsc` is running here
 EXPOSE 8000
 
 # Запускаем приложение
-CMD ["npm", "dist/index.js"]
+CMD ["npm", "./dist/index.js"]
