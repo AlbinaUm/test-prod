@@ -8,6 +8,8 @@ services:
       - "80:80"
     volumes:
       - ./frontend:/app
+    env_file:
+      - .env
     working_dir: /app
     command: npm install && npm start
     depends_on:
@@ -20,5 +22,7 @@ services:
       - "8000:8000"
     volumes:
       - ./api:/app
+    env_file:
+      - .env
     working_dir: /app
     command: npm install && npm run start
