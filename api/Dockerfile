@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8000
 
 # Запускаем приложение
-CMD ["ts-node", "index.ts"]
+CMD ["npm", "start"]
