@@ -17,7 +17,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./api
+      - ./api:/app
     environment:
       - NODE_ENV=production
     depends_on:
