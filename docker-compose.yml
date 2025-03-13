@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3'
 
 services:
   mongo:
@@ -16,6 +16,8 @@ services:
       - "8000:8000"
     volumes:
       - ./api:/app
+    environment:
+      - NODE_ENV=production
     depends_on:
       - mongo
 
@@ -27,6 +29,8 @@ services:
       - "80:80"
     volumes:
       - ./frontend:/app
+    environment:
+      - NODE_ENV=production
     depends_on:
           - api
 
