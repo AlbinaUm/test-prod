@@ -1,0 +1,21 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./frontend  # Путь к директории с фронтендом
+    ports:
+      - "5173:5173"
+    networks:
+      - app-network
+
+  api:
+    build:
+      context: ./api  # Путь к директории с API
+    ports:
+      - "8000:8000"  # Порт, на котором работает ваше API
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

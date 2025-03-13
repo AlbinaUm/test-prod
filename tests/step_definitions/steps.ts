@@ -14,11 +14,9 @@ When('ввожу в поле {string} значение {string}', (name: string,
 });
 
 When('нажимаю на кнопу {string}', () => {
-    I.wait(5);
     I.click(`//button[contains(., 'Sign Up')]`);
 });
 
 Then('я вижу сообщение {string}', (message: string) => {
    I.see(message);
-   I.wait(20);
 });
