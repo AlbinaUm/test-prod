@@ -7,11 +7,11 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./frontend:/app
+      - ./frontend:/app:delegated  # Оптимизация синхронизации
     env_file:
       - .env
     working_dir: /app
-    command: npm install && npm start
+    command: ./wait-for-it.sh api:8000 -- npm install && npm start  # Ожидание API
     depends_on:
       - api
 
@@ -21,7 +21,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./api:/app
+      - ./api:/app:delegated  # Оптимизация синхронизации
     env_file:
       - .env
     working_dir: /app
