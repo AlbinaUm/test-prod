@@ -1,27 +1,24 @@
-# Development stage
-FROM node:20-bookworm-slim as development
+# Используем официальный образ Node.js
+FROM node:20 as BUILD
 
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
+# Копируем package.json и package-lock.json
 COPY package*.json ./
 
-RUN npm ci
+# Устанавливаем зависимости
+RUN npm install
+
+# Копируем все файлы проекта в контейнер
+COPY . .
+
+RUN npm run build  # Make sure `tsc` is running here
 
 COPY . .
 
-RUN npm run build
+# Открываем порт 8000 для API
+EXPOSE 8000
 
-CMD ["npm", "run", "dev"]
-
-# Production stage
-FROM node:20-bookworm-slim as BUILD
-
-WORKDIR /app
-
-COPY package*.json ./
-
-RUN npm ci --only=production
-
-COPY --from=development /app/dist ./dist
-
-CMD ["node", "dist/index.js"]
+# Запускаем приложение
+CMD ["node", "/app/dist/index.js"]
