@@ -1,22 +1,20 @@
+# Используем официальный образ Node.js
 FROM node:20
 
 # Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем файлы package.json и package-lock.json
+# Копируем package.json и package-lock.json
 COPY package*.json ./
 
 # Устанавливаем зависимости
 RUN npm install
 
-# Копируем остальные файлы проекта
+# Копируем все файлы проекта в контейнер
 COPY . .
 
-# Строим проект (если нужно)
-RUN npm run build
-
-# Открываем порт
+# Открываем порт 8000 для API
 EXPOSE 8000
 
-# Запускаем сервер
-CMD ["npx", "ts-node", "index.ts"]
+# Запускаем приложение
+CMD ["npm", "start"]
