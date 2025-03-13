@@ -1,15 +1,13 @@
 version: '3.8'
 
 services:
-  frontend:
-    build:
-      context: ./frontend  # Путь к директории с фронтендом
+  mongo:
+    image: mongo:latest
+    container_name: mongo
     ports:
-      - "80:80"
+      - "27017:27017"
     volumes:
-      - ./frontend:/app
-    environment:
-      - NODE_ENV=production
+      - mongo-data:/data/db
 
   api:
     build:
@@ -23,13 +21,22 @@ services:
     depends_on:
       - mongo
 
-  mongo:
-    image: mongo:latest
-    container_name: mongo
+
+  frontend:
+    build:
+      context: ./frontend  # Путь к директории с фронтендом
     ports:
-      - "27017:27017"
+      - "80:80"
     volumes:
-      - mongo-data:/data/db
+      - ./frontend:/app
+    environment:
+      - NODE_ENV=production
+    depends_on:
+          - api
+
+
+
+
 
 volumes:
   mongo-data:
