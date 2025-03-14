@@ -36,7 +36,7 @@ const config =  {
       clientId: process.env.GOOGLE_CLIENT_ID,
       secretId: process.env.GOOGLE_SECRET_ID,
     },
-    db: process.env.MONGO_DB_URL || 'mongodb://localhost/shop',
+    db: process.env.MONGO_DB_URL ||  'mongodb://localhost:27018/shop',
 };
 
 

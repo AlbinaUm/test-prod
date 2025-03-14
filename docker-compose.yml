@@ -21,7 +21,6 @@ services:
     depends_on:
       - mongo
 
-
   frontend:
     build:
       context: ./frontend  # Путь к директории с фронтендом
@@ -33,10 +32,6 @@ services:
       - NODE_ENV=production
     depends_on:
           - api
-
-
-
-
 
 volumes:
   mongo-data:

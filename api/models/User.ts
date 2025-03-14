@@ -1,5 +1,5 @@
 import mongoose, {HydratedDocument, Model} from "mongoose";
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import {UserFields} from "../types";
 import {randomUUID} from "node:crypto";
 
